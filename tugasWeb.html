@@ -2,34 +2,106 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>latihan 3 coy</title>
+	<title>belajar css</title>
 	<style>
-		body {
-			color: pink;
-		}
-    #content {
-    	font-family: sans-serif;
-    	background-color: yellow;
-    	margin: 60px;
-    	
-    }
-    #luar{
-    	background-color: skyblue;
-    	border: 2px solid black;
-    	margin-top: 100px;
-    }
-	</style>
+		
+		
+		.container {
+			display: flex;
 
+			width: 1000px;
+			height:200px;
+			background-color: #11C5C6;
+			border: 2px solid black;
+			padding: 20px;
+			border-radius: 10px;
+			margin: 0 auto;
+		}
+		.box {
+			flex-grow: 1;
+			background-color: #FBDD1C;
+			margin: 5px;
+			border: 2px solid black;
+			border-radius: 10px;
+			text-align: center;
+		}
+		.login{
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			width: 1000px;
+			transform: translate(-50%,-50%);
+			border: 1px solid black;
+			border-width: 2px;
+			padding: 15px;
+			background-color: #11C5C6;
+			border-radius: 10px;
+			margin-top: 100px;
+			
+		}
+		.form-element {
+			margin: 8px;
+			align-items: left;
+
+		}
+		img {
+			width: 100px;
+			height: 100px;
+		}
+		
+		
+	</style>
 </head>
 <body>
-   <div id="luar">
-	<div id="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.	</div>
-</div>
+	
+   <div class="container">
 
+   </div>
+   <div class="login">
+   	<h2 align="center">isi data diri</h2>
+   	<div class="formContent" align="center">
+   		<form id ="formDataDiri">
+   			<div class="form-element">
+   				<label for="nama">Nama :</label>
+   				<input type="text" id="nama" name="nama" placeholder="isi nama anda" required>
+   			</div>
+   			<div class="form-element">
+   				<label for="domisili">Domisili :</label>
+   				<input type="text" id="domisili" name="domisili" placeholder="isi domisili anda" required>
+   			</div>
+   			<div class="form-element">
+   				<input type="submit" value="submit data">
+   			</div>
+   		</form>
+   	</div>
+   </div>
+   				
+   <script>
+    const dataDiri = document.getElementById('formDataDiri');
+    dataDiri.addEventListener('submit',function(event){
+    	event.preventDefault();
+     	const container = document.querySelector('.container');
+     	const gambar = document.createElement("img");
+     	gambar.setAttribute("src","img/gambar.png");
+     	container.append(gambar);
+     	const nama = document.getElementById('nama').value;
+     	const alamat = document.getElementById('domisili').value;
+     	const div = document.createElement("div");
+     	div.classList.add("box");
+     	const h2 = document.createElement("h2");
+     	const h3 = document.createElement("h3");
+     	h2.innerText = nama;
+     	h3.innerText = alamat;
+     	div.append(gambar,h2,h3);
+     	container.append(div);
+     	 
+     });
+     	
+     	
+     	
+     	
+
+   </script>
 </body>
+   
 </html>
